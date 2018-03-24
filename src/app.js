@@ -33,6 +33,15 @@ app.engine('html', hbs.__express);
  */
 app.use(express.static(path.join(root_dir, "html/" + "web_version_03.19/" + "public/"))); //放到webpage网页端的下面
 /**
+ * 设置https的ssh证书
+ */
+var ssh_options = {
+    key: fs.readFileSync(path.join(root_dir, '/full_chain.pem')),
+    cert: fs.readFileSync(path.join(root_dir, '/private.key')),
+};
+var http = require("http");
+var https = require("https");
+/**
  * 设置路由1
  */
 router1.get('/', function (req, res) {
@@ -63,4 +72,9 @@ router3.get('/test', function (req, res) {
 app.use('/', router1);
 app.use('/pictures', router2); //双路由是必定可行的。
 app.use('/', router3);
-app.listen(3000);
+var http_server_port = 8080;
+var https_server_port = 443;
+http.createServer(app).listen(http_server_port);
+https.createServer(ssh_options, app).listen(https_server_port);
+console.log(" now open http networt port : " + http_server_port);
+console.log(" now open https networt port : " + https_server_port);

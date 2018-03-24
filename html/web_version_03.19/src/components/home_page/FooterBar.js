@@ -1,9 +1,23 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
-const React = require("react");
-const css = require("../../css/App.css");
-exports.default = class FooterBar extends React.Component {
-    render() {
+var React = require("react");
+var css = require("../../css/App.css");
+exports.default = /** @class */ (function (_super) {
+    __extends(FooterBar, _super);
+    function FooterBar() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    FooterBar.prototype.render = function () {
         var tab_list = [
             '服务',
             '解决方案',
@@ -51,23 +65,33 @@ exports.default = class FooterBar extends React.Component {
             var tab = tab_list[i];
             var span_list = [];
             //单次加入大标题的文字
-            span_list.push(React.createElement("span", { "css-role": "footerbar_tab_title" }, tab));
+            span_list.push(<span css-role="footerbar_tab_title">{tab}</span>);
             //内层的小标题
             for (var j = 0; j < para_list[i].length; j++) {
                 //循环中加入小标题的文字
-                span_list.push(React.createElement("span", { "css-role": "footerbar_tab_para" }, para_list[i][j]));
+                span_list.push(<span css-role="footerbar_tab_para">{para_list[i][j]}</span>);
             }
             //将这次获得的文字，加入tab_divs
-            tab_divs.push(React.createElement("div", { className: css.footerbar_paragraph }, span_list));
+            tab_divs.push(<div className={css.footerbar_paragraph}>{span_list}</div>);
         }
-        return (React.createElement("div", { className: css.footerbar_total },
-            React.createElement("div", { className: css.footerbar_tab },
-                React.createElement("div", { className: css.footerbar_paragraph },
-                    React.createElement("span", { "css-role": "footerbar_qrcode_title" }, "\u4E13\u6CE8\u7528\u6237\u4F53\u9A8C\u8BBE\u8BA1\u4E0E\u5F00\u53D1"),
-                    React.createElement("img", { "css-role": "footerbar_qrcode_image", src: "/resources/qr_code.png", alt: "QRCode" })),
-                tab_divs),
-            React.createElement("span", { "css-role": "footerbar_bottom_text" }, "\u53CB\u60C5\u94FE\u63A5\uFF1AMi\u4E91 \u817E\u8BAF\u4E91\u6559\u7A0B\u7F51 \u817E\u8BAF\u4E91 \u5FAE\u4FE1\u516C\u4F17\u5E73\u53F0"),
-            React.createElement("span", { "css-role": "footerbar_bottom_text" }, "Copyright \u00A9 2018-2018 www.django-win.com \u6C5F\u54E5Django\u5C0F\u7A0B\u5E8F-Mi\u4E91\u8BA1\u7B97\u7248\u6743\u6240\u6709"),
-            React.createElement("span", { "css-role": "footerbar_bottom_text" }, "\u6DF1\u5733\u5E02Django\u79D1\u6280\u5F00\u53D1\u6709\u9650\u516C\u53F8 \u7CA4ICP\u59071508888\u53F7-8")));
-    }
-};
+        return (<div className={css.footerbar_total}>
+
+                <div className={css.footerbar_tab}>
+
+                    <div className={css.footerbar_paragraph}>
+                        <span css-role="footerbar_qrcode_title">专注用户体验设计与开发</span>
+                        <img css-role="footerbar_qrcode_image" src="/resources/qr_code.png" alt="QRCode"/>
+                    </div>
+
+                    {tab_divs}
+
+                </div>
+
+                <span css-role="footerbar_bottom_text">友情链接：Mi云 腾讯云教程网 腾讯云 微信公众平台</span>
+                <span css-role="footerbar_bottom_text">Copyright © 2018-2018 www.django-win.com 江哥Django小程序-Mi云计算版权所有</span>
+                <span css-role="footerbar_bottom_text">深圳市Django科技开发有限公司 粤ICP备1508888号-8</span>
+
+            </div>);
+    };
+    return FooterBar;
+}(React.Component));
