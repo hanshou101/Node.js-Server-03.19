@@ -1,0 +1,410 @@
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+/**
+* 超级经典的问题。还好在【小程序】中遇到过。！！！
+* 功不唐捐。
+*/
+.super_list_inline{
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.test{
+    background-color: blue;
+}
+
+.home {
+    composes : column;
+    width: 100%;
+    height: auto;
+}
+
+.titlebar_total{
+    composes:row;
+    align-items: center;            /* 侧轴 */
+    height: 65px;
+    background-color: white;
+}
+
+.titlebar_left{
+    composes:row;
+    justify-content: center;
+    align-items: center;
+    flex: 50%;
+}
+
+.titlebar_right{
+    composes:row;
+    justify-content: start;
+    align-items: center;
+    flex: 50%;
+}
+
+/**
+* 无法使用嵌套类选择器。所以只好用属性选择器。
+*/
+[css-role="titlebar_l_text"]{
+    color: #000000;
+    margin-left: 8px;
+    margin-right: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+[css-role="titlebar_r_text"]{
+    color: #666666;
+    margin-right: 50px;
+    font-size: 16px;
+}
+
+[css-role="titlebar_r_text_selected"]{
+    color: #66cc00;
+    margin-right: 50px;
+    font-size: 16px;
+}
+
+[css-role="titlebar_l_logo"]{
+    height: 48px;
+}
+
+[css-role="titlebar_r_logo"]{
+    height: 24px;
+}
+
+
+.rollpager{
+    composes:row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.tech_support_total{
+    composes:column;
+    justify-content: start;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.tech_support_lists{
+    composes:super_list_inline;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 36px;
+}
+
+.tech_support_a_item{
+    composes:column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    height: 350px;
+    width: 260px;
+    margin-left: 25px;
+    margin-right: 25px;
+
+}
+
+[css-role="tech_support_total_title"]{
+    font-size: 28px;
+    color: #000000;
+}
+
+[css-role="tech_support_total__sub_title"]{
+    margin-top: 24px;
+    font-size: 16px;
+    color: #878787;
+}
+
+[css-role="tech_support_item_top"]{
+    font-size: 20px;
+    color: #000000;
+    margin-top: 36px;
+    margin-bottom: 12px;
+}
+
+[css-role="tech_support_item_bottom"]{
+    font-size: 14px;
+    color: #999999;
+    margin-top: 4px;
+}
+
+
+.solutions_total{
+        composes:column;
+        justify-content: start;
+        align-items: center;
+        margin-top: 80px;
+        background-color: white;
+        padding-left: 17%;
+        padding-right: 17%;
+}
+
+.solutions_lists{
+    composes:super_list_inline;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.solutions_a_item{
+    composes:column;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+[css-role="solutions_total_title"]{
+    font-size: 29px;
+    color: black;
+    margin-top: 50px;
+    margin-bottom: 12px;
+}
+
+[css-role="solutions_total_sub_title"]{
+    font-size: 15px;
+    color: #878787;
+    margin-top: 6px;
+}
+
+[css-role="solutions_gap_div"]{
+    height: 70px;
+    width: 100%;
+}
+
+[css-role="solutions_item_img"]{
+    height: 238px ;
+    width: 343px ;
+}
+
+[css-role="solutions_item_text_top"]{
+    font-size: 20px;
+    color: black;
+    margin-top: 24px;
+}
+
+[css-role="solutions_item_text_bottom"]{
+    font-size: 13px;
+    color:#A9AAAE;
+    margin-top: 16px;
+}
+
+[css-role="solutions_item_button"]{
+    font-size: 14px;
+    color:#00D900;
+    margin-top: 24px;
+    border-radius: 5px;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00D900;
+    height: 26px;
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+[css-role="solutions_total_bottom_btn"]{
+    font-size: 12px;
+    color:#00D900;
+    border-radius: 3px;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00D900;
+    height: 34px;
+    width: 110px;
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.advantages_total{
+    composes:column;
+    justify-content: start;
+    align-items:center;
+}
+
+.advantages_lists{
+    composes:super_list_inline;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 1200px;
+    margin-bottom: 36px;
+}
+
+.advantages_a_item{
+    composes:column;
+    justify-content: start;
+    align-items:center;
+}
+
+
+[css-role="advantages_total_title"]{
+    font-size: 28px;
+    color:black;
+    margin-top: 36px;
+}
+
+[css-role="advantages_total_sub_title"]{
+    font-size: 15px;
+    color:#878787;
+    margin-top: 12px;
+    margin-bottom: 80px;
+}
+
+[css-role="advantages_item_text"]{
+    font-size: 14px;
+    color:black;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+
+.project_shows_total{
+    composes:column;    
+    justify-content: start;
+    align-items: center;
+    background-color: #4A4A4B;
+}
+
+.project_shows_bitmaps{
+    composes:row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+[css-role="project_shows_total_title"]{
+    font-size: 29px;
+    color:white;
+    margin-top: 36px;
+}
+
+[css-role="project_shows_total_sub_title"]{
+    font-size: 17px;
+    color:#748787;
+    margin-top: 12px;
+    margin-bottom: 36px;
+}
+
+[css-role="project_shows_image_divs"]{
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+[css-role="project_shows_total_bottom_btn"]{
+    font-size: 12px;
+    color:white;
+    border-radius: 3px;
+    background-color:#FF000000;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    height: 34px;
+    width: 110px;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 36px;
+}
+
+
+.pro_service_total{
+    composes:column;
+    justify-content: start;
+    align-items: center;
+    background-color: white;
+    padding-bottom: 48px;
+}
+
+.pro_service_lists{
+    composes:row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 80px;
+    width: 1240px;
+}
+
+.pro_service_a_item{
+    composes:column;
+    justify-content: start;
+    align-items: center;
+}
+
+[css-role="pro_service_total_title"]{
+    font-size: 27px;
+    color:black;
+    margin-top: 36px;
+}
+
+[css-role="pro_service_item_arrow"]{
+    width: 37px;
+    height: 14px;
+    margin-bottom: 40px;
+}
+
+[css-role="pro_service_item_text"]{
+    font-size: 16px;
+    color: black;
+    margin-top: 24px;
+}
+
+.footerbar_total{
+    composes:column;
+    justify-content: start;
+    align-items: center;
+    background-color: #2E3033;
+    width: 100%;
+    padding-bottom: 24px;
+}
+
+.footerbar_tab{
+    composes:super_list_inline;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 48px;
+    width: 1300px;
+}
+
+.footerbar_paragraph{
+    composes:column;
+    justify-content: start;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+[css-role="footerbar_tab_title"]{
+   font-size: 18px;
+   color: white;
+ }
+
+ [css-role="footerbar_tab_para"]{
+    font-size: 12px;
+    color: #CCCCCC;
+    margin-top: 12px;
+  }
+
+
+[css-role="footerbar_qrcode_title"]{
+    font-size: 16px;
+    color: white;
+    margin-top: 6px;
+ }
+
+[css-role="footerbar_qrcode_image"]{
+   width: 120px;
+   height: 120px;
+   margin-left: 6px;
+   margin-top: 12px;
+}
+
+[css-role="footerbar_bottom_text"]{
+   font-size: 12px;
+   color: #CCCCCC;
+   margin-top: 8px;
+ }

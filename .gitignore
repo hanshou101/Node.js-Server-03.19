@@ -1,4 +1,5 @@
 # Testing
 
-/node_modules/
-/package-lock.json
+# 清除当前文件夹下，以及所有的。
+node_modules/
+package-lock.json

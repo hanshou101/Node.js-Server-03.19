@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "noImplicitAny": false,
+        "sourceMap": false,
+        "watch": false,
+        "jsx": "react"
+    },
+    "exclude": [
+        "node_modules",
+        "typings"
+    ]
+}
