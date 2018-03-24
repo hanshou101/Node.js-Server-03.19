@@ -44,8 +44,10 @@ app.use(express.static(path.join(root_dir, "html/" + "web_version_03.19/" + "pub
  * 设置https的ssh证书
  */
 var ssh_options = {
-    key: fs.readFileSync(path.join(root_dir, '/full_chain.pem')),
-    cert: fs.readFileSync(path.join(root_dir, '/private.key')),
+    key: fs.readFileSync(path.join(root_dir, '/private.key')),
+    cert: fs.readFileSync(path.join(root_dir, '/full_chain.pem')),
+    // key: fs.readFileSync('/root/Node.js-Server-03.19/private.key'),
+    // cert: fs.readFileSync('/root/Node.js-Server-03.19/full_chain.pem'),
 }
 import http = require('http')
 import https = require('https')
