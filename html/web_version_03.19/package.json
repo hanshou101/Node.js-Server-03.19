@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webdemo": "webpack && webpack-dev-server --config webpack.config.js ",
-    "webreal": "  echo  \" --------  ready to tsc compile  -------- \"  &&  tsc  &&  echo  \" --------  ready to webpack build  -------- \"  &&  webpack  &&  echo  \" --------  ready to start server  -------- \"  && node \"../../src/app.js\" && echo \" now open networt port : such as 3000 ; \"  ",
-    "webreal_notcorrect": "  tsc  --watch  &&  webpack  && node \"../../src/app.js\" && echo \" now open networt port : such as 3000 ; \"  "
+    "webreal": "   echo  \" --------  ready to tsc compile  -------- \"  &&  tsc  &&  echo  \" --------  ready to webpack build  -------- \"  &&  webpack  &&  echo  \" --------  ready to start server  -------- \"   &&  echo \" -------- open chrome tab automaticly -------- \"   &&   start http://localhost:8080/      && node \"../../src/app.js\"  &&  echo  \" now open networt port : such as 3000 ;  This line can't touch because  node.js  server  is  on  process  .  \"  ",
+    "webreal_notcorrect": "  tsc  --watch  &&  webpack  && node \"../../src/app.js\" && echo \" now open networt port : such as 3000 ; \"  ",
+    "PowerShell_test_1": "Start-Process 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe' 'http://localhost:8080/'",
+    "PowerShell_test_2": "Start-Process \"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\" \"http://localhost:8080/\" "
   },
   "author": "",
   "license": "ISC",

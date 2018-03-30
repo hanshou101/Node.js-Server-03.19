@@ -5,3 +5,6 @@ node_modules/
 package-lock.json
 full_chain.pem
 private.key
+
+# 手动的7z备份包，不用提交 or 上传
+*.7z

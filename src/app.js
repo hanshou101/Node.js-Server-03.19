@@ -5,6 +5,7 @@ var app = express();
 var router1 = express.Router();
 var router2 = express.Router();
 var router3 = express.Router();
+var router4 = express.Router();
 var multer = require("multer");
 var path = require("path");
 var hbs = require('hbs');
@@ -36,15 +37,15 @@ app.use(express.static(path.join(root_dir, "html/" + "web_version_03.19/" + "pub
  * 设置https的ssh证书
  */
 var ssh_options = {
-    key: fs.readFileSync(path.join(root_dir, '/full_chain.pem')),
-    cert: fs.readFileSync(path.join(root_dir, '/private.key')),
+    key: fs.readFileSync(path.join(root_dir, '/private.key')),
+    cert: fs.readFileSync(path.join(root_dir, '/full_chain.pem')),
 };
 var http = require("http");
 var https = require("https");
 /**
  * 设置路由1
  */
-router1.get('/', function (req, res) {
+router1.get('/get_upload', function (req, res) {
     res.render('upload_file', {});
 });
 /**
@@ -66,12 +67,20 @@ router2.post('/upload', uploading_fun.single('image'), function (req, res) {
         }
     });
 });
+//设置路由3
 router3.get('/test', function (req, res) {
+    res.sendFile(path.join(root_dir, "html/" + "web_version_03.19/" + "public/" + "index.html"));
+});
+/**
+ * 设置路由4
+ */
+router4.get('*', function (req, res) {
     res.sendFile(path.join(root_dir, "html/" + "web_version_03.19/" + "public/" + "index.html"));
 });
 app.use('/', router1);
 app.use('/pictures', router2); //双路由是必定可行的。
 app.use('/', router3);
+app.use('', router4);
 var http_server_port = 8080;
 var https_server_port = 443;
 http.createServer(app).listen(http_server_port);

@@ -60,6 +60,10 @@ const my_store = createStore(
  */
 var Home = require('./components/home_page/Home').default
 var TestPage = require('./components/test_page/TestPage').default
+var NavHeader = require('./components/usual_widget/NavHeader').default
+var NavFooter = require('./components/usual_widget/NavFooter').default
+
+var JoinUs = require('./components/join_us_page/JoinUs').default
 
 var css = require('./css/App.css')
 
@@ -76,13 +80,36 @@ var render_fun = () => ReactDOM.render(
 
             <div >
 
-                <Route path="/404" component={(props) => { return <h1>404</h1> }} />
+                <nav className="navbar navbar-default navbar-fixed-top">
+
+                    <NavHeader />
+
+                </nav>
+
 
                 <Switch>
+                    <Route exact path="/join_us" component={JoinUs} />
                     <Route exact path="/test" component={Home} />
                     <Route exact path='/' component={TestPage} />
+
+
+
+                    <Route exact path="/btn_1" component={NavHeader} />
+                    <Route exact path="/btn_2" component={NavFooter} />
+
+                    <Route path="/404" component={(props) => { return <h1>404</h1> }} />
+
                     <Redirect to="/404" />
                 </Switch>
+
+                <nav className="navbar navbar-default navbar-fixed-bottom" style={{
+                    padding: "0em",
+                }}   >
+
+                    <NavFooter />
+
+                </nav>
+
             </div>
 
         </ConnectedRouter>

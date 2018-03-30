@@ -1,6 +1,6 @@
 import React = require('react');
 import css = require('../../css/App.css')
-var HoverPic = require('../widget/HoverPic').default
+var HoverPic = require('../usual_widget/HoverPic').default
 
 
 exports.default = class Solutions extends React.Component {

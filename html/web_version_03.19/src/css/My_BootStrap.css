@@ -1,0 +1,27 @@
+/**
+* 添加自动换行属性。（自适应布局）
+*/
+
+.flex_row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+/**
+* 添加自动换行属性。（自适应布局）
+*/
+
+.flex_column {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+/**
+* 超级经典的问题。还好在【小程序】中遇到过。！！！
+* 功不唐捐。
+*/
+
+.super_list_inline {
+    display: inline-flex;
+    flex-direction: row;
+}

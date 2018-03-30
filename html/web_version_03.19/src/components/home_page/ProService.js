@@ -1,23 +1,9 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var css = require("../../css/App.css");
-exports.default = /** @class */ (function (_super) {
-    __extends(ProService, _super);
-    function ProService() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    ProService.prototype.render = function () {
+const React = require("react");
+const css = require("../../css/App.css");
+exports.default = class ProService extends React.Component {
+    render() {
         var length = 9;
         var category_list = [
             '注册账号',
@@ -47,23 +33,16 @@ exports.default = /** @class */ (function (_super) {
             var pojo = item_datas[j];
             //如果是上图下文的情况
             if (pojo['cate']) {
-                item_divs.push(<div className={css.pro_service_a_item}>
-                        <img src={pojo['img_src']} alt="pro_service"/>
-                        <span css-role="pro_service_item_text">{pojo['cate']}</span>
-                    </div>);
+                item_divs.push(React.createElement("div", { className: css.pro_service_a_item },
+                    React.createElement("img", { src: pojo['img_src'], alt: "pro_service" }),
+                    React.createElement("span", { "css-role": "pro_service_item_text" }, pojo['cate'])));
             }
             else {
-                item_divs.push(<img css-role="pro_service_item_arrow" src={pojo['img_src']} alt="next"/>);
+                item_divs.push(React.createElement("img", { "css-role": "pro_service_item_arrow", src: pojo['img_src'], alt: "next" }));
             }
         }
-        return (<div className={css.pro_service_total}>
-                <span css-role="pro_service_total_title">高端定制开发 私有化部署</span>
-
-                <div className={css.pro_service_lists}>
-                    {item_divs}
-                </div>
-
-            </div>);
-    };
-    return ProService;
-}(React.Component));
+        return (React.createElement("div", { className: css.pro_service_total },
+            React.createElement("span", { "css-role": "pro_service_total_title" }, "\u9AD8\u7AEF\u5B9A\u5236\u5F00\u53D1 \u79C1\u6709\u5316\u90E8\u7F72"),
+            React.createElement("div", { className: css.pro_service_lists }, item_divs)));
+    }
+};

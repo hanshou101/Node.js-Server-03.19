@@ -3,7 +3,7 @@ import { HashRouter, /* Router, */ Route, Link, Switch, Redirect } from 'react-r
 
 var my_store = require('../../App.js').my_store
 var my_history = require('../../App.js').my_history
-var css = require('../../css/App.css')
+import css = require('../../css/App.css')
 
 export default class TestPage extends React.Component {
     render() {
@@ -21,6 +21,20 @@ export default class TestPage extends React.Component {
             <button onClick={(event) => {
                 my_history.push('/test')
             }}>跳转test</button>
+
+
+            <button onClick={(event) => {
+                my_history.push('/btn_1')
+            }}>跳转btn_1</button>
+
+
+            <button onClick={(event) => {
+                my_history.push('/btn_2')
+            }}>跳转btn_2</button>
+
+            <button onClick={(event) => {
+                my_history.push('/join_us')
+            }}>跳转join_us</button>
 
             <button onClick={() =>
                 my_store.dispatch({

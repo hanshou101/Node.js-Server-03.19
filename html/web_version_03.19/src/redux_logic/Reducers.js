@@ -1,9 +1,8 @@
-var default_state = {
+const default_state = {
     sum: 1
 };
 // Reducer函数（1）
-var math = function (state, action) {
-    if (state === void 0) { state = default_state; }
+const math = (state = default_state, action) => {
     switch (action.type) {
         case 'ADD': {
             return {
@@ -26,13 +25,12 @@ var math = function (state, action) {
     }
 };
 // 测试结果
-var test_state = math({ sum: 1 }, {
+const test_state = math({ sum: 1 }, {
     type: 'ADD',
     payload: 2
 });
 // Reducer函数（2）
-var my_reducer_2 = function (state, action) {
-    if (state === void 0) { state = 0; }
+const my_reducer_2 = (state = 0, action) => {
     switch (action.type) {
         case 'ADD': {
             return state + (action.payload) * 10;
@@ -49,8 +47,7 @@ var my_reducer_2 = function (state, action) {
     }
 };
 // Reducer函数（3）
-var my_reducer_3 = function (state, action) {
-    if (state === void 0) { state = 100; }
+const my_reducer_3 = (state = 100, action) => {
     switch (action.type) {
         case 'ADD': {
             return state + (action.payload) * 100;

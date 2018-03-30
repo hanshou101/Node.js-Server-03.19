@@ -1,40 +1,36 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var css = require("../../css/App.css");
-exports.default = /** @class */ (function (_super) {
-    __extends(Advantages, _super);
-    function Advantages() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Advantages.prototype.render = function () {
+const React = require("react");
+const css = require("../../css/App.css");
+exports.default = class Advantages extends React.Component {
+    render() {
         var length = 14;
         var item_datas = [];
         var advantage_list = [
-            <span css-role="advantages_item_text">制作周期短</span>,
-            <span css-role="advantages_item_text">操作简单</span>,
-            <span css-role="advantages_item_text">首页DIY</span>,
-            <span css-role="advantages_item_text">设计精美</span>,
-            <span css-role="advantages_item_text">专属售后服务</span>,
-            <span css-role="advantages_item_text">独立后台</span>,
-            <span css-role="advantages_item_text">数据统计分析</span>,
-            <div className={css.advantages_a_item}><span css-role="advantages_item_text">多功能</span><span css-role="advantages_item_text">模板选择</span></div>,
-            <div className={css.advantages_a_item}> <span css-role="advantages_item_text">支持不同</span> <span css-role="advantages_item_text">行业模式</span></div>,
-            <span css-role="advantages_item_text">多种入口</span>,
-            <span css-role="advantages_item_text">二维码推广</span>,
-            <span css-role="advantages_item_text">系统稳定流畅</span>,
-            <div className={css.advantages_a_item}> <span css-role="advantages_item_text">商品上传</span> <span css-role="advantages_item_text">无上限</span></div>,
-            <span css-role="advantages_item_text">功能自由开发</span>,
+            React.createElement("span", { "css-role": "advantages_item_text" }, "\u5236\u4F5C\u5468\u671F\u77ED"),
+            React.createElement("span", { "css-role": "advantages_item_text" }, "\u64CD\u4F5C\u7B80\u5355"),
+            React.createElement("span", { "css-role": "advantages_item_text" }, "\u9996\u9875DIY"),
+            React.createElement("span", { "css-role": "advantages_item_text" }, "\u8BBE\u8BA1\u7CBE\u7F8E"),
+            React.createElement("span", { "css-role": "advantages_item_text" }, "\u4E13\u5C5E\u552E\u540E\u670D\u52A1"),
+            React.createElement("span", { "css-role": "advantages_item_text" }, "\u72EC\u7ACB\u540E\u53F0"),
+            React.createElement("span", { "css-role": "advantages_item_text" }, "\u6570\u636E\u7EDF\u8BA1\u5206\u6790"),
+            React.createElement("div", { className: css.advantages_a_item },
+                React.createElement("span", { "css-role": "advantages_item_text" }, "\u591A\u529F\u80FD"),
+                React.createElement("span", { "css-role": "advantages_item_text" }, "\u6A21\u677F\u9009\u62E9")),
+            React.createElement("div", { className: css.advantages_a_item },
+                " ",
+                React.createElement("span", { "css-role": "advantages_item_text" }, "\u652F\u6301\u4E0D\u540C"),
+                " ",
+                React.createElement("span", { "css-role": "advantages_item_text" }, "\u884C\u4E1A\u6A21\u5F0F")),
+            React.createElement("span", { "css-role": "advantages_item_text" }, "\u591A\u79CD\u5165\u53E3"),
+            React.createElement("span", { "css-role": "advantages_item_text" }, "\u4E8C\u7EF4\u7801\u63A8\u5E7F"),
+            React.createElement("span", { "css-role": "advantages_item_text" }, "\u7CFB\u7EDF\u7A33\u5B9A\u6D41\u7545"),
+            React.createElement("div", { className: css.advantages_a_item },
+                " ",
+                React.createElement("span", { "css-role": "advantages_item_text" }, "\u5546\u54C1\u4E0A\u4F20"),
+                " ",
+                React.createElement("span", { "css-role": "advantages_item_text" }, "\u65E0\u4E0A\u9650")),
+            React.createElement("span", { "css-role": "advantages_item_text" }, "\u529F\u80FD\u81EA\u7531\u5F00\u53D1"),
         ];
         for (var i = 0; i < length; i++) {
             item_datas.push({
@@ -47,30 +43,23 @@ exports.default = /** @class */ (function (_super) {
         for (var j = 0; j < length; j++) {
             var advan = item_datas[j]['advan'];
             var img_src = item_datas[j]['img_src'];
-            item_per_row.push(<div className={css.advantages_a_item}>
-                    <img src={img_src} alt="advantage"/>
-                    {advan}
-                </div>);
+            item_per_row.push(React.createElement("div", { className: css.advantages_a_item },
+                React.createElement("img", { src: img_src, alt: "advantage" }),
+                advan));
             /**
              * 满7个元素，打包成1行
              * 如果是最后一个元素，也打包成1行
              */
             if (j % 7 == 6 || j == length - 1) {
                 // 打包成1行
-                item_divs.push(<div className={css.advantages_lists}>
-                        {item_per_row}
-                    </div>);
+                item_divs.push(React.createElement("div", { className: css.advantages_lists }, item_per_row));
                 //重置item_per_row容器
                 item_per_row = [];
             }
         }
-        return (<div className={css.advantages_total}>
-                <span css-role="advantages_total_title">江哥Django-优势</span>
-                <span css-role="advantages_total_sub_title">打通多渠道，掌握最新市场动脉</span>
-
-                {item_divs}
-
-            </div>);
-    };
-    return Advantages;
-}(React.Component));
+        return (React.createElement("div", { className: css.advantages_total },
+            React.createElement("span", { "css-role": "advantages_total_title" }, "\u6C5F\u54E5Django-\u4F18\u52BF"),
+            React.createElement("span", { "css-role": "advantages_total_sub_title" }, "\u6253\u901A\u591A\u6E20\u9053\uFF0C\u638C\u63E1\u6700\u65B0\u5E02\u573A\u52A8\u8109"),
+            item_divs));
+    }
+};

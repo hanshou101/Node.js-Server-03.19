@@ -4,6 +4,7 @@ var app = express()
 var router1 = express.Router()
 var router2 = express.Router()
 var router3 = express.Router()
+var router4 = express.Router()
 
 import multer = require('multer')
 import path = require('path')
@@ -57,7 +58,7 @@ import https = require('https')
  * 设置路由1
  */
 
-router1.get('/', (req, res) => {
+router1.get('/get_upload', (req, res) => {
     res.render('upload_file', {
 
     })
@@ -88,13 +89,23 @@ router2.post('/upload', uploading_fun.single('image'), (req, res) => {
 
 })
 
+//设置路由3
 router3.get('/test', (req, res) => {
     res.sendFile(path.join(root_dir, "html/" + "web_version_03.19/" + "public/" + "index.html"))
 })
 
+/**
+ * 设置路由4
+ */
+router4.get('*', (req, res) => {
+    res.sendFile(path.join(root_dir, "html/" + "web_version_03.19/" + "public/" + "index.html"))
+})
+
+
 app.use('/', router1)
 app.use('/pictures', router2)       //双路由是必定可行的。
 app.use('/', router3)
+app.use('', router4)
 
 
 var http_server_port = 8080;

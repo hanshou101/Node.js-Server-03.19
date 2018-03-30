@@ -1,18 +1,46 @@
 <html>
 
 <head>
+    <!-- React脚本+BootStrap脚本 -->
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./js/bootstrap.min.css">
+
+    <!-- 自适应Web页面的配置信息 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
 
     <title>React 测试</title>
 
     <style>
-        /**
-        * 整体背景颜色
-        * 1.直接指定label标签名。backgroud-color。
-        * 2.在<body>标签里手动加入：   <body bgcolor=" #FAFBFA">
-        */
-
         body {
+            /**
+             * 整体背景颜色
+             *              1.直接指定label标签名。backgroud-color。
+             *              2.在<body>标签里手动加入：   <body bgcolor=" #FAFBFA">
+             */
             background-color: #FAFBFA;
+
+            /**
+             * 自适应Web页面的相对大小字体
+             *              1.字体大小是页面默认大小的100%，即1em=16px像素。
+             *              2.此后，都用em这一个相对像素单位。1.5em，0.875em。
+             */
+            font: normal 100% Helvetica, Arial, sans-serif;
+
+
+            /**
+            * 其它的布局，使用流式布局（或flex布局），比如使用百分比的高度和宽度。
+            */
+        }
+
+        img {
+            /**
+            * 图片的自适应，
+            */
+            max-width: 100%;
         }
     </style>
 
@@ -23,8 +51,7 @@
 
     <div id="content"></div>
 
-    <script src="./js/react.development.js"></script>
-    <script src="./js/react-dom.development.js"></script>
+
     <script src="./dist/bundle.js"></script>
 
 </body>
