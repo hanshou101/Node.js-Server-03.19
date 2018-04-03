@@ -1,54 +1,84 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
-const React = require("react");
-class Banner extends React.Component {
-    render() {
-        return (React.createElement("div", { style: {
-                display: "flex",
-                direction: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                position: "relative",
-                width: "100%",
-                background: "black",
-                padding: "0em",
-            } },
-            React.createElement("img", { src: "/resources/join_us/banner.jpg", alt: "\u6A2A\u5E45\u56FE\u7247", style: {
-                    maxWidth: "100%",
-                    width: "100%",
-                } }),
-            React.createElement("div", { style: {
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    position: "absolute",
-                    left: "0em",
-                    top: "0em",
-                    width: "100%",
-                    height: "100%",
-                    padding: "2em",
-                } },
-                React.createElement("h1", null,
-                    React.createElement("span", { style: {
-                            color: "white",
-                            fontSize: "1.75em",
-                            fontWeight: "bolder",
-                        } }, "Django\u4EE3\u7406\u5546")),
-                React.createElement("h1", null,
-                    React.createElement("span", { style: {
-                            color: "white",
-                            fontSize: "1.75em",
-                            fontWeight: "bolder",
-                        } }, "\u706B\u70ED\u62DB\u52DF\u4E2D")),
-                React.createElement("span", { className: "", style: {
-                        color: "white",
-                        marginTop: "1em"
-                    } }, "\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F\u5E02\u573A  \u5343\u4EBF\u5E02\u573A\u7B49\u4F60\u6765"),
-                React.createElement("button", { className: "btn btn-success", style: {
-                        color: "white",
-                        marginTop: "1.5em",
-                    } }, "\u6210\u4E3A\u4EE3\u7406\u5546"))));
+var React = require("react");
+var Banner = /** @class */ (function (_super) {
+    __extends(Banner, _super);
+    function Banner() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-}
+    Banner.prototype.render = function () {
+        return (<div style={{
+            display: "flex",
+            direction: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "relative",
+            width: "100%",
+            background: "black",
+            padding: "0em",
+        }}>
+
+                <img src="/resources/join_us/banner.jpg" alt="横幅图片" style={{
+            maxWidth: "100%",
+            width: "100%",
+        }}/>
+
+                <div style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "absolute",
+            left: "0em",
+            top: "0em",
+            width: "100%",
+            height: "100%",
+            padding: "2em",
+        }}>
+
+                    <h1>
+                        <span style={{
+            color: "white",
+            fontSize: "1.75em",
+            fontWeight: "bolder",
+        }}>Django代理商
+                        </span>
+                    </h1>
+
+                    <h1>
+                        <span style={{
+            color: "white",
+            fontSize: "1.75em",
+            fontWeight: "bolder",
+        }}>火热招募中
+                        </span>
+                    </h1>
+
+                    <span className="" style={{
+            color: "white",
+            marginTop: "1em"
+        }}>微信小程序市场  千亿市场等你来
+                    </span>
+                    <button className="btn btn-success" style={{
+            color: "white",
+            marginTop: "1.5em",
+        }}>成为代理商
+                    </button>
+
+                </div>
+
+            </div>);
+    };
+    return Banner;
+}(React.Component));
 exports.default = Banner;

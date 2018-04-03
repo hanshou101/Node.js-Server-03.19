@@ -1,10 +1,24 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
-const React = require("react");
-const css = require("../../css/App.css");
+var React = require("react");
+var css = require("../../css/App.css");
 var HoverPic = require('../usual_widget/HoverPic').default;
-exports.default = class Solutions extends React.Component {
-    render() {
+exports.default = /** @class */ (function (_super) {
+    __extends(Solutions, _super);
+    function Solutions() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Solutions.prototype.render = function () {
         var length = 6;
         var item_datas = [];
         var category_list = ['分销商城', '餐饮外卖', '宾馆酒店', '景点旅游', '美容美妆', '教育视频'];
@@ -31,28 +45,39 @@ exports.default = class Solutions extends React.Component {
             var hover_icon_src = item_datas[j]['hover_icon_src'];
             var cate = item_datas[j]['cate'];
             var intro = item_datas[j]['intro'];
-            item_per_row.push(React.createElement("div", { className: css.solutions_a_item },
-                React.createElement(HoverPic, { my_width: "343px", my_height: "238px", picA: img_src, picB: hover_icon_src }),
-                React.createElement("span", { "css-role": "solutions_item_text_top" }, cate),
-                React.createElement("span", { "css-role": "solutions_item_text_bottom" }, intro),
-                React.createElement("button", { "css-role": "solutions_item_button" }, "\u4E03\u5929\u4F53\u9A8C\uFF1A 1\u5143")));
+            item_per_row.push(<div className={css.solutions_a_item}>
+                    <HoverPic my_width="343px" my_height="238px" picA={img_src} picB={hover_icon_src}/>
+                    <span css-role="solutions_item_text_top">{cate}</span>
+                    <span css-role="solutions_item_text_bottom">{intro}</span>
+                    <button css-role="solutions_item_button">七天体验： 1元</button>
+                </div>);
             /**
              * 如果数满了3个元素，打包成1行。
              * 如果是最后1个元素，打包成1行。
              */
             if (j % 3 == 2 || j == length - 1) {
                 //打包成1行
-                item_divs.push(React.createElement("div", { className: css.solutions_lists }, item_per_row));
+                item_divs.push(<div className={css.solutions_lists}>
+                        {item_per_row}
+                    </div>);
                 //重置item_per_row容器
                 item_per_row = [];
             }
         }
-        return (React.createElement("div", { className: css.solutions_total },
-            React.createElement("span", { "css-role": "solutions_total_title" }, "\u6C5F\u54E5Django-\u89E3\u51B3\u65B9\u6848"),
-            React.createElement("span", { "css-role": "solutions_total_sub_title" }, "\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F\u63D0\u4F9B\u5168\u65B9\u4F4D\u7684\u5C0F\u7A0B\u5E8F\u5168\u65B0\u89E3\u51B3\u65B9\u6848"),
-            React.createElement("span", { "css-role": "solutions_total_sub_title" }, "\u4E3B\u8981\u5305\u62EC\u7535\u5546\u3001O2O\u670D\u52A1\u3001\u9910\u996E\u5916\u5356\u3001\u9884\u7EA6\u6392\u961F\u3001\u8FD0\u52A8\u5065\u8EAB\u3001\u5A5A\u7EB1\u6444\u5F71\u7B49"),
-            React.createElement("div", { "css-role": "solutions_gap_div" }),
-            item_divs,
-            React.createElement("button", { "css-role": "solutions_total_bottom_btn" }, "\u67E5\u770B\u66F4\u591A \u2192")));
-    }
-};
+        return (<div className={css.solutions_total}>
+
+                <span css-role="solutions_total_title">江哥Django-解决方案</span>
+                <span css-role="solutions_total_sub_title">微信小程序提供全方位的小程序全新解决方案</span>
+                <span css-role="solutions_total_sub_title">主要包括电商、O2O服务、餐饮外卖、预约排队、运动健身、婚纱摄影等</span>
+
+                <div css-role="solutions_gap_div"></div>
+
+                {item_divs}
+
+
+                <button css-role="solutions_total_bottom_btn">查看更多 →</button>
+
+            </div>);
+    };
+    return Solutions;
+}(React.Component));

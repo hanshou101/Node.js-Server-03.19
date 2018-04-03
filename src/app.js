@@ -6,6 +6,8 @@ var router1 = express.Router();
 var router2 = express.Router();
 var router3 = express.Router();
 var router4 = express.Router();
+var router5 = express.Router();
+var router6 = express.Router();
 var multer = require("multer");
 var path = require("path");
 var hbs = require('hbs');
@@ -33,6 +35,7 @@ app.engine('html', hbs.__express);
  * 很重要的一句。（符合Express设计规范）
  */
 app.use(express.static(path.join(root_dir, "html/" + "web_version_03.19/" + "public/"))); //放到webpage网页端的下面
+app.use(express.static(path.join(root_dir, "public/" + "game1/"))); //放到webpage网页端的下面
 /**
  * 设置https的ssh证书
  */
@@ -77,7 +80,21 @@ router3.get('/test', function (req, res) {
 router4.get('*', function (req, res) {
     res.sendFile(path.join(root_dir, "html/" + "web_version_03.19/" + "public/" + "index.html"));
 });
+/**
+ * 设置路由5
+ */
+router5.get('/game_web', function (req, res) {
+    res.sendFile(path.join(root_dir, "public/" + "game1/" + "game.html"));
+});
+/**
+ * 设置路由6
+ */
+router6.get('/game_download.7z', function (req, res) {
+    res.sendFile(path.join(root_dir, "public/" + "windows_game.7z"));
+});
 app.use('/', router1);
+app.use('/', router5);
+app.use('/', router6);
 app.use('/pictures', router2); //双路由是必定可行的。
 app.use('/', router3);
 app.use('', router4);

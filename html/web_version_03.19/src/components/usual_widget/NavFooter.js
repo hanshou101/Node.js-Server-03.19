@@ -1,9 +1,23 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
-const React = require("react");
-const bs_css = require("../../css/My_BootStrap.css");
-class NavFooter extends React.Component {
-    render() {
+var React = require("react");
+var bs_css = require("../../css/My_BootStrap.css");
+var NavFooter = /** @class */ (function (_super) {
+    __extends(NavFooter, _super);
+    function NavFooter() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    NavFooter.prototype.render = function () {
         var para_list = [
             {
                 title: "服务",
@@ -53,61 +67,75 @@ class NavFooter extends React.Component {
             },
         ];
         var item_divs = [];
-        para_list.forEach((item, index) => {
+        para_list.forEach(function (item, index) {
             var title_color = index != para_list.length - 1 ? "white" : "#24B727";
             var para_color = index != para_list.length - 1 ? "#CCCCCC" : "white";
-            var title_div = React.createElement("span", { style: { color: title_color } }, item.title);
+            var title_div = <span style={{ color: title_color }}>{item.title}</span>;
             var para_divs = [];
-            item.paras.forEach((para) => {
-                para_divs.push(React.createElement("span", { style: {
-                        color: para_color,
-                        fontSize: "0.5em",
-                        marginTop: "0.75em",
-                    } }, para));
-            });
-            item_divs.push(React.createElement("div", { className: bs_css.flex_column, style: {
-                    marginLeft: "3em",
-                    marginRight: "3em",
-                } },
-                title_div,
-                para_divs));
-        });
-        return (React.createElement("div", { className: bs_css.flex_column, style: {
-                justifyContent: "space-between",
-                alignItems: "center",
-                width: "100%",
-                backgroundColor: "#2E3033",
-            } },
-            React.createElement("div", { className: bs_css.flex_row, style: {
-                    justifyContent: "space-between",
-                    alignItems: "flex-start",
-                    marginTop: "3em",
-                } },
-                React.createElement("div", { className: bs_css.flex_column, style: {} },
-                    React.createElement("span", { style: {
-                            color: "white",
-                            marginTop: "0.5em",
-                        } }, "\u4E13\u6CE8\u7528\u6237\u4F53\u9A8C\u8BBE\u8BA1\u4E0E\u5F00\u53D1"),
-                    React.createElement("img", { src: "/resources/qr_code.png", alt: "\u7F51\u7AD9\u4E8C\u7EF4\u7801", style: {
-                            width: "7.625em",
-                            height: "7.625em",
-                            marginTop: "0.5em",
-                        } })),
-                item_divs),
-            React.createElement("span", { style: {
+            item.paras.forEach(function (para) {
+                para_divs.push(<span style={{
+                    color: para_color,
                     fontSize: "0.5em",
-                    color: "#CCCCCC",
-                    textAlign: "center",
-                    marginTop: "3em",
-                    marginBottom: "3em",
-                } },
-                "\u53CB\u60C5\u94FE\u63A5\uFF1AMi\u4E91 \u817E\u8BAF\u4E91\u6559\u7A0B\u7F51 \u817E\u8BAF\u4E91 \u5FAE\u4FE1\u516C\u4F17\u5E73\u53F0",
-                React.createElement("br", null),
-                React.createElement("br", null),
-                "Copyright \u00A9 2018-2018 www.django-win.com \u6C5F\u54E5Django\u5C0F\u7A0B\u5E8F-Mi\u4E91\u8BA1\u7B97\u7248\u6743\u6240\u6709",
-                React.createElement("br", null),
-                React.createElement("br", null),
-                "\u6DF1\u5733\u5E02Django\u79D1\u6280\u5F00\u53D1\u6709\u9650\u516C\u53F8 \u7CA4ICP\u59071508888\u53F7-8")));
-    }
-}
+                    marginTop: "0.75em",
+                }}>{para}</span>);
+            });
+            item_divs.push(<div className={bs_css.flex_column} style={{
+                marginLeft: "3em",
+                marginRight: "3em",
+            }}>
+                        {title_div}
+                        {para_divs}
+                    </div>);
+        });
+        return (<div className={bs_css.flex_column} style={{
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "100%",
+            backgroundColor: "#2E3033",
+        }}>
+
+                <div className={bs_css.flex_row} style={{
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            marginTop: "3em",
+        }}>
+
+
+                    <div className={bs_css.flex_column} style={{}}>
+
+                        <span style={{
+            color: "white",
+            marginTop: "0.5em",
+        }}>专注用户体验设计与开发</span>
+
+                        <img src="/resources/qr_code.png" alt="网站二维码" style={{
+            width: "7.625em",
+            height: "7.625em",
+            marginTop: "0.5em",
+        }}/>
+
+
+                    </div>
+
+
+                    {item_divs}
+
+                </div>
+
+                <span style={{
+            fontSize: "0.5em",
+            color: "#CCCCCC",
+            textAlign: "center",
+            marginTop: "3em",
+            marginBottom: "3em",
+        }}>
+                    友情链接：Mi云 腾讯云教程网 腾讯云 微信公众平台<br /><br />Copyright © 2018-2018 www.django-win.com 江哥Django小程序-Mi云计算版权所有<br /><br />深圳市Django科技开发有限公司 粤ICP备1508888号-8
+                    </span>
+
+
+
+            </div>);
+    };
+    return NavFooter;
+}(React.Component));
 exports.default = NavFooter;
