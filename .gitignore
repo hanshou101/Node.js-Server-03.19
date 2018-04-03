@@ -8,3 +8,6 @@ private.key
 
 # 手动的7z备份包，不用提交 or 上传
 *.7z
+
+# 无论如何，都不忽略windows_game.7z
+!windows_game.7z
